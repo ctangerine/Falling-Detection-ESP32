@@ -124,6 +124,9 @@ void loop() {
 void alarm(int duration) {
   int beepDuration = duration / 8; // Calculate the duration of each beep
   for (int i = 0; i < 8; i++) {
+    if (isCancelled == true) {
+      break;
+    }
     digitalWrite(buzzerPin, HIGH); // Turn the buzzer on
     delay(beepDuration / 2); // Beep for half the beep duration
     digitalWrite(buzzerPin, LOW); // Turn the buzzer off
